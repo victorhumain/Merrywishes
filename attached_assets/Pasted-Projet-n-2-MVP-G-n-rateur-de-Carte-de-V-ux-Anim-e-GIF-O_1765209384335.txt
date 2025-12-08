@@ -1,0 +1,160 @@
+Projet n°2 – MVP : Générateur de Carte de Vœux Animée (GIF)
+🌟 Objectif du MVP
+
+Créer un outil simple permettant à un utilisateur de taper un message de vœux, de choisir un thème animé, puis de générer une image GIF animée de 4–5 secondes incluant son texte.
+L’utilisateur doit pouvoir télécharger le GIF et le partager sur WhatsApp/Instagram Stories/Messages.
+
+Ce MVP est optimisé pour une mise en ligne rapide, un coût serveur minimal et une forte viralité.
+
+✨ User Flow (MVP)
+
+L’utilisateur arrive sur une page simple.
+
+Il tape son vœu (max 120 caractères).
+
+Il choisit un thème animé parmi 3 thèmes.
+
+Il clique sur “Générer le GIF”.
+
+Le système génère un GIF 720×720px, 4 secondes.
+
+Le site affiche un bouton “Télécharger votre GIF 🎁”.
+
+Un lien de partage (page publique) est également disponible.
+
+🧩 Fonctionnalités (User Stories) – MVP
+F1 – Saisie du vœu
+
+Champ texte (max 120 chars).
+
+Comptage de caractères.
+
+Suggestions automatiques si le champ est vide :
+
+“Joyeux Noël 🎄”
+
+“Bonne année ✨”
+
+“Tous mes meilleurs vœux !”
+
+F2 – Sélection du thème (3 thèmes statiques inclus)
+
+Thèmes fixes pour le MVP :
+
+Flocons Blancs : fond bleu nuit + flocons animés.
+
+Feux d’artifice : fond sombre + particules dorées.
+
+Guirlande Scintillante : fond rouge + guirlandes lumineuses.
+
+Important :
+Ces animations peuvent être des courtes vidéos MP4 pré-enregistrées de 4 secondes, sur lesquelles on superpose le texte → pour gagner du temps de dev.
+
+F3 – Génération du GIF
+
+Processus côté serveur (FFmpeg ou équivalent).
+
+Prend une vidéo de base (thème choisi).
+
+Superpose le texte centré au milieu.
+
+Ajoute un tout petit watermark en bas (“Made with XmasCard.io” ou nom du site).
+
+Génère un GIF :
+
+Résolution : 720 × 720 px
+
+Durée : 4 secondes
+
+Poids cible < 2 MB
+
+F4 – Téléchargement
+
+Bouton simple “Download GIF”.
+
+En mobile : déclencher le téléchargement directement.
+
+F5 – Page publique partageable
+
+Chaque GIF généré a une URL unique :
+
+/card/{id}
+
+Sur cette page :
+
+aperçu du GIF
+
+bouton télécharger
+
+blocs publicitaires intégrés (AdSense ou placeholder)
+
+⚙️ Livrables Techniques (MVP)
+Front-End
+
+Framework libre (React si possible).
+
+Page unique (UI minimaliste).
+
+Preview en direct du texte sur un mock (pas besoin de prévisualisation animée).
+
+Back-End
+
+Une fonction serveur (Serverless) pour :
+
+Prendre le texte + thème
+
+Superposer texte sur la vidéo
+
+Générer le GIF
+
+Enregistrer le fichier (Cloud Storage)
+
+Base de données
+
+Collection minimaliste :
+
+id
+
+texte
+
+thème
+
+fichier GIF URL
+
+timestamp
+
+Stockage
+
+GIF hébergés dans un bucket (Cloudflare R2, Supabase Storage, AWS S3…).
+
+🔐 Contraintes du MVP
+
+Génération rapide (< 3 secondes si possible).
+
+3 thèmes maximum.
+
+Pas d’édition avancée (police, couleurs, taille du texte).
+
+Un seul format de sortie : GIF carré 720×720.
+
+Pas de génération MP4 (prochaine version).
+
+🎨 Style & UI
+
+Noël / Nouvel An, moderne, emojis OK.
+
+Boutons arrondis, couleurs chaudes (rouge, or).
+
+Très légère animation sur les boutons (hover).
+
+🚀 Évolutions prévues après le MVP (pas à faire maintenant)
+
+Ajout de 10 thèmes supplémentaires.
+
+Génération MP4 + GIF.
+
+Ajout d’autocollants (stickers).
+
+Prévisualisation animée en temps réel.
+
+Analyse du trafic et contenus viraux.
