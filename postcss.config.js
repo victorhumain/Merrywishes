@@ -1,6 +1,10 @@
 export default {
   plugins: {
-    tailwindcss: {},
-    autoprefixer: {},
+    "tailwindcss": {},
+    "postcss-nesting": {},
+    "@csstools/postcss-oklab-function": {
+      preserve: false,   // ❗ important : remplace oklab() → rgb()
+    },
+    "autoprefixer": {},
   },
-}
+};

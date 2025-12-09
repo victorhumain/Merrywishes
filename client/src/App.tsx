@@ -21,12 +21,18 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <Toaster />
-        <Router />
-        {/* Ad Placeholder */}
-        <div className="w-full h-24 bg-muted/50 rounded-lg border border-dashed border-muted-foreground/20 flex items-center justify-center text-muted-foreground text-sm">
-          Espace Publicitaire (Sponsorisé par Adsense)
+        <div className="flex flex-row gap-4 min-h-screen p-4">
+          {/* Ad Placeholder */}
+          <div className=" p-2 bg-muted/50 rounded-lg border border-dashed border-muted-foreground/20 flex items-center justify-center text-muted-foreground text-sm">
+            Espace Publicitaire (Sponsorisé par Adsense)
+          </div>
+          <Router />
+          {/* Ad Placeholder */}
+          <div className=" p-2 bg-muted/50 rounded-lg border border-dashed border-muted-foreground/20 flex items-center justify-center text-muted-foreground text-sm">
+            Espace Publicitaire (Sponsorisé par Adsense)
+          </div>
         </div>
+        <Toaster />
       </TooltipProvider>
     </QueryClientProvider>
   );

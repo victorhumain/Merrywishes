@@ -7,9 +7,10 @@ interface PreviewProps {
   text: string;
   className?: string;
   isGenerating?: boolean;
+  fontClassName?: string; // Nouvelle Prop pour la police
 }
 
-export function Preview({ theme, text, className, isGenerating }: PreviewProps) {
+export function Preview({ theme, text, className, isGenerating, fontClassName }: PreviewProps) {
   return (
     <div className={cn("relative aspect-square w-full max-w-[400px] mx-auto overflow-hidden rounded-lg shadow-2xl border-4 border-white/20", className)}>
       {/* Background Image (Simulating Video) */}
@@ -22,17 +23,21 @@ export function Preview({ theme, text, className, isGenerating }: PreviewProps) 
       {/* Overlay for readability if needed */}
       <div className="absolute inset-0 bg-black/10" />
 
-      {/* Animated Elements Simulation */}
+      {/* Animated Elements Simulation (Assuming this CSS is defined elsewhere) */}
       <div className="absolute inset-0 pointer-events-none mix-blend-screen opacity-50 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] brightness-100 contrast-150"></div>
 
       {/* Text Overlay */}
       <div className="absolute inset-0 flex items-center justify-center p-8">
         <motion.p 
-          key={theme.id + text}
+          key={theme.id + text + fontClassName} // Key pour forcer la ré-animation
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
-          className="text-center font-display text-3xl md:text-4xl leading-relaxed drop-shadow-lg"
+          // Applique la classe de police ici
+          className={cn(
+            "text-center text-3xl md:text-4xl leading-relaxed drop-shadow-lg",
+            fontClassName 
+          )}
           style={{ color: theme.textColor, textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}
         >
           {text || "Votre message ici..."}
@@ -41,7 +46,7 @@ export function Preview({ theme, text, className, isGenerating }: PreviewProps) 
 
       {/* Watermark */}
       <div className="absolute bottom-2 right-3 text-[10px] text-white/60 font-sans tracking-widest uppercase">
-        Made with XmasCard.io
+        Made with MerryWishes.io
       </div>
 
       {/* Loading Overlay */}

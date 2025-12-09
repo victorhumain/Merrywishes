@@ -59,3 +59,21 @@
   border: 1px solid rgba(255, 255, 255, 0.5);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
 }
+
+/* Mode capture sans oklab */
+.capture-safe {
+  /* Neutraliser les couleurs basées sur oklab */
+  --background: 255 255 255 !important;
+  --foreground: 0 0 0 !important;
+  --primary: 0 122 255 !important;
+  --primary-foreground: 255 255 255 !important;
+
+  background: rgb(255 255 255) !important;
+  color: rgb(0 0 0) !important;
+
+  /* Assurer que rien d'autre ne casse */
+  * {
+    -webkit-filter: none !important;
+    filter: none !important;
+  }
+}
