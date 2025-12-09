@@ -57,7 +57,7 @@ export default function Home() {
           <Sparkles className="h-6 w-6 text-yellow-500 fill-yellow-500" />
         </div>
         <h1 className="font-display text-5xl md:text-6xl text-primary drop-shadow-sm">
-          XmasCard.io
+          MerryWishes.io
         </h1>
         <p className="text-muted-foreground text-lg max-w-md mx-auto">
           Créez une carte de vœux animée unique en quelques secondes.
