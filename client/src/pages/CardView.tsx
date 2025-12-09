@@ -91,11 +91,6 @@ export default function CardView() {
           </div>
         </Card>
 
-        {/* Ad Placeholder */}
-        <div className="w-full h-24 bg-muted/50 rounded-lg border border-dashed border-muted-foreground/20 flex items-center justify-center text-muted-foreground text-sm">
-          Espace Publicitaire (Sponsorisé par le Pôle Nord)
-        </div>
-
       </div>
     </div>
   );
